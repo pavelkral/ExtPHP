@@ -1,11 +1,15 @@
 <?php
 /**
  * ExtPHP framework
- * @author Pavel Kral
- * @version 2011
+ * This source file is subject to the ExtPHP framework license
+ * with this package in the file license.txt.
+ * @copyright  Copyright (c) 2009-2011 Pavel Kral
+ * @license   http://x-design.wz.cz/license ExtPHP framework license
+ * @link       http://x-design.wz.cz
+ * @category    framework
  */
 
-class ExtDbSqlModel
+class ExtMysqlModel
 {
     
     
@@ -100,20 +104,20 @@ class ExtDbSqlModel
      
     public function buildQuery(){
 
-          mysql_query("SET CHARACTER SET utf8");
+          mysqli_query(ExtMysql::getConnection(),"SET CHARACTER SET utf8");
         
-          $this->obj_result = mysql_query($this->str_query);
-          $this->int_foundrows = mysql_num_rows($this->obj_result);
+          $this->obj_result = mysqli_query(ExtMysql::getConnection(),$this->str_query);
+          $this->int_foundrows = mysqli_num_rows($this->obj_result);
     
           $this->int_pagecount = $this->int_foundrows / $this->int_showrows;
           $this->int_pagecount = ceil($this->int_pagecount);
     
     
             if ($this->int_foundrows < $this->int_showrows) {
-                $this->obj_result = mysql_query($this->str_query);
+                $this->obj_result = mysqli_query(ExtMysql::getConnection(),$this->str_query);
     
             } else {
-                $this->obj_result = mysql_query("" . $this->str_query . "" . " limit " . ($this->int_startrow - 1) . ", " . $this->int_showrows);
+                $this->obj_result = mysqli_query(ExtMysql::getConnection(),"" . $this->str_query . "" . " limit " . ($this->int_startrow - 1) . ", " . $this->int_showrows);
             }
  
  
@@ -156,18 +160,18 @@ class ExtDbSqlModel
                 }
                     
                    if ($offset == $_GET["start"]) {
-                        $selected = 'id="current"';
+                        $selected = 'class="active1"';
                         $curent = $i;
                     } 
                     elseif ($this->int_startrow == 1 && $i == 1) {
-                        $selected = 'id="current"';
+                        $selected = 'class="active1"';
                          $curent = $i;
                     } 
                      else{
                         $selected = '';
                     }
                     
-                 $arr[$i] =  "<a " . $selected . " href=\"?start=" . ($offset) . "&amp;showrows=" . ($this->int_showrows) . "\"><strong>" . $i . "</strong></a>";
+                 $arr[$i] =  "<li><a " . $selected . " href=\"?start=" . ($offset) . "&amp;showrows=" . ($this->int_showrows) . "\"><strong>" . $i . "</strong></a></li>";
            
             }
             
@@ -183,23 +187,23 @@ class ExtDbSqlModel
         
         
         if ($this->int_startrow < $this->int_showrows) {
-                $this->str_prevlink = "&lt;&lt;";
+                $this->str_prevlink = "";
         } 
             else {
-                $this->str_prevlink = "<a href=\"?start=" . ($this->int_startrow - $this->int_showrows) . "&amp;showrows=" . ($this->int_showrows) . "\">&lt;&lt;</a>";
+                $this->str_prevlink = "<li><a href=\"?start=" . ($this->int_startrow - $this->int_showrows) . "&amp;showrows=" . ($this->int_showrows) . "\">&lt;&lt;</a></li>";
             }
         if ($this->int_startrow + $this->int_showrows > $this->int_foundrows) {
-                $this->str_nextlink = "&gt;&gt;";
+                $this->str_nextlink = "";
         } 
             else {
-                $this->str_nextlink = "<a href=\"?start=" . ($this->int_startrow + $this->int_showrows) . "&amp;showrows=" . ($this->int_showrows) . "\">&gt;&gt;</a>";
+                $this->str_nextlink = "<li><a href=\"?start=" . ($this->int_startrow + $this->int_showrows) . "&amp;showrows=" . ($this->int_showrows) . "\">&gt;&gt;</a></li>";
             }
         
          if ($this->int_startrow == 1){
                 $this->str_firstlink = "Začátek"; 
          } 
              else {
-                $this->str_firstlink = "<a href=\"?start=1\">Začátek</a>";
+                $this->str_firstlink = "<li><a href=\"?start=1\">Začátek</a></li>";
              }
         if ($this->int_startrow>$this->int_foundrows-$this->int_showrows){
                 $this->str_endlink = "Konec";
@@ -211,7 +215,7 @@ class ExtDbSqlModel
 //                    //echo 'bad';
 //                	} else {
 //                  //  echo 'ok';
-                    $this->str_endlink = "<a href=\"?start=".($this->int_foundrows-$this->int_foundrows%$this->int_showrows+1)."\">Konec</a>";
+                    $this->str_endlink = "<li><a href=\"?start=".($this->int_foundrows-$this->int_foundrows%$this->int_showrows+1)."\">Konec</a></li>";
                // }
                
             }
@@ -230,10 +234,10 @@ class ExtDbSqlModel
         $i = 0;
         $row = 0;
 
-        while ($myrow = mysql_fetch_array($this->obj_result)) {
-            for ($i = 0; $i < mysql_num_fields($this->obj_result); $i++) {
-                $fieldname = mysql_field_name($this->obj_result, $i);
-                $this->arr_data[$row][$fieldname] = $myrow[$fieldname];
+        while ($myrow = mysqli_fetch_array($this->obj_result)) {
+            for ($i = 0; $i < mysqli_num_fields($this->obj_result); $i++) {
+                $fieldname = mysqli_fetch_field_direct($this->obj_result, $i);
+                $this->arr_data[$row][$fieldname->name] = $myrow[$fieldname->name];
             }
             $row++;
         }
@@ -248,7 +252,7 @@ class ExtDbSqlModel
      
     public function freeResult(){
         
-        mysql_free_result($this->obj_result);
+        mysqli_free_result($this->obj_result);
         
     }
 

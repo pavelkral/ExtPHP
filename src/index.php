@@ -18,7 +18,7 @@
 
 	$loader = ExtLoader::getInstance(LOADER_PREFIX);
 //	$debug = new ExtDebugger;
-	$connection = new ExtDbConnection;
+//	$connection = new ExtDbConnection;
     mysql_query("SET CHARACTER SET utf8");    
 
 	$application = ExtApplication::getApplication();
@@ -26,7 +26,7 @@
 //	$application->secureApp('user_logs','Login');
 	$application->run();
 
-	$connection -> close();
+//	$connection -> close();
 
 //..............................................................................................................................................................................................................
 
