@@ -1,9 +1,14 @@
 <?php
 /**
  * ExtPHP framework
- * @author Pavel Kral
- * @version 2011
+ * This source file is subject to the ExtPHP framework license
+ * with this package in the file license.txt.
+ * @copyright  Copyright (c) 2009 Pavel Kral
+ * @license   http://x-design.wz.cz/license Coyotte framework license
+ * @link       http://x-design.wz.cz
+ * @category    framework
  */
+
 
 
 class ExtTemplate{
@@ -98,7 +103,13 @@ public function __construct(){
 
 
 	}
-
+			
+	/**
+	 * ExtTemplate::renderSimple()
+	 * 
+	 * @param mixed $template
+	 * @return
+	 */
      
 	public static function renderSimple($template)
 	{

@@ -1,8 +1,10 @@
  <?php
 /**
  * ExtPHP framework
- * @author Pavel Kral
- * @version 2011
+ * This source file is subject to the ExtPHP framework license
+ * with this package in the file license.txt.
+ * @copyright  Copyright (c) 2009 Pavel Kral
+ 
  */
 
 class ExtRouter
@@ -10,13 +12,6 @@ class ExtRouter
 
 // ExtRoute
 public  $route;
-
-
-
-    /**
-     * ExtRouter::__construct()
-
-     */
      
     public function __construct(){
 
@@ -27,10 +22,24 @@ public  $route;
     	$urlarr = array_diff_assoc($uri,$script);        
     	$urlarr = array_values($urlarr);
         
-        //echo $urlarr;
+       // echo "url".$urlarr.count();
+       // var_dump(count($urlarr));
+
+        if($urlarr[0] != null) {
+             $presenterName = $urlarr[0];
+        }
+        else{
+            $presenterName = "Default";
+        }
+        if(isset($urlarr[1])) {	
+            $presenterFunction = $urlarr[1];
+        }
+        else{
+            $presenterFunction = "default";
+        }
+        $urlarr[0];
+    	
     
-    	$presenterName = $urlarr[0];
-    	$presenterFunction = $urlarr[1];
     	$parameters = array_slice($urlarr,2);
     
   		if (preg_match($_getmask ,$presenterFunction)){

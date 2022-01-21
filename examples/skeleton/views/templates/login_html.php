@@ -7,7 +7,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/css/style.css" rel="stylesheet" type="text/css" />
 
-  <link href="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/css/ExtPHP.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/css/ExtPHP.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
 
@@ -17,8 +17,9 @@
 <table cellpadding="4" border="0" align="center" width="500" bgcolor="#3B3B3B" >
 
 </tr>
-<td >
-Login: <br /><input type="text" name="user_name" class="txt" />
+<td>
+Login: <br />
+<input type="text" name="user_name" class="txt" />
 </td>
 <td width="60" rowspan="2" align="right"><img src="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/png/icon.png" align="left" border="0" />
 </td>

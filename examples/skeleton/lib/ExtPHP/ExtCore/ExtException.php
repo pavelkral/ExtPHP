@@ -1,8 +1,10 @@
 <?php
 /**
  * ExtPHP framework
- * @author Pavel Kral
- * @version 2011
+ * This source file is subject to the ExtPHP framework license
+ * with this package in the file license.txt.
+ * @copyright  Copyright (c) 2009-2011 Pavel Kral
+ * @category    framework
  */
 
 class ExtException extends Exception
@@ -17,7 +19,7 @@ class ExtException extends Exception
      
     public function errMsg(){
     
-        $errorMsg = '<strong>Error on line</strong> '.$this->getLine().' in '.$this->getFile()
+        $errorMsg = '<strong>ExtException Error on line</strong> '.$this->getLine().' in '.$this->getFile()
         .': <b>'.$this->getMessage();
         
         return $errorMsg;

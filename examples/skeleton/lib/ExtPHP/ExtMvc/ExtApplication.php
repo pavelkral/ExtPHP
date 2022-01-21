@@ -1,9 +1,21 @@
 <?php
 /**
- * ExtPHP framework
+ * This is a part of the ExtPHP framework
+ *
+ * @copyright  Copyright (c) 2009-2011 Pavel Kral
+ * @link       http://x-design.wz.cz/extphp/
+ * @category    framework 
+ * 
+ * For the full copyright and license information, please view
+ * the license.txt that was distributed with this source code.
+ * 
+ * ExtApplication
+ * @package  ExtPHP
  * @author Pavel Kral
  * @version 2011
+ * @access public
  */
+
 
  
 class ExtApplication{
