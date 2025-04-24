@@ -1,6 +1,6 @@
 # ExtPHP 
 
-Minimalistic and fast Php and MySql MVC framework using mode rewrite.
+Minimalistic and fast Php and MySql MVC framework.
 
 ## Basic route example
  
@@ -13,7 +13,7 @@ Minimalistic and fast Php and MySql MVC framework using mode rewrite.
 ## Route call
 
   ```shell
-  Object = ArticlesConntroller extend ExtConntroller  //if not set call default
+  Object = ArticlesController extend ExtController  //if not set call default
   his function show(); //if not set call default
   with array of params[0-n]
   ```
