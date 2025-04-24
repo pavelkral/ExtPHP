@@ -1,9 +1,6 @@
  <?php
 /**
  * ExtPHP framework
- * This source file is subject to the ExtPHP framework license
- * with this package in the file license.txt.
- * @copyright  Copyright (c) 2009 Pavel Kral
  
  */
 
@@ -26,30 +23,30 @@ public  $route;
        // var_dump(count($urlarr));
 
         if($urlarr[0] != null) {
-             $presenterName = $urlarr[0];
+             $controllerName = $urlarr[0];
         }
         else{
-            $presenterName = "Default";
+            $controllerName = "Default";
         }
         if(isset($urlarr[1])) {	
-            $presenterFunction = $urlarr[1];
+            $controllerFunction = $urlarr[1];
         }
         else{
-            $presenterFunction = "default";
+            $controllerFunction = "default";
         }
         $urlarr[0];
     	
     
     	$parameters = array_slice($urlarr,2);
     
-  		if (preg_match($_getmask ,$presenterFunction)){
-    			   $presenterFunction = 'default';
+  		if (preg_match($_getmask ,$controllerFunction)){
+    			   $controllerFunction = 'default';
         }
-			if (preg_match($_getmask ,$presenterName)){
-				  $presenterName = 'Default';
+			if (preg_match($_getmask ,$controllerName)){
+				  $controllerName = 'Default';
 			}                    
-      			if($presenterName == ''){
-                    $presenterName = 'Default';
+      			if($controllerName == ''){
+                    $controllerName = 'Default';
                 }
                 
                     for($i=0;$i < count($parameters);$i++){
@@ -59,7 +56,7 @@ public  $route;
                         }
                     }
             
-    	$this->route = new ExtRoute($presenterName,$presenterFunction,$parameters);
+    	$this->route = new ExtRoute($controllerName,$controllerFunction,$parameters);
     }
     
     /**

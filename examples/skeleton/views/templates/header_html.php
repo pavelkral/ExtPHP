@@ -1,13 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>ExtPhp Example</title>
-  <meta name="GENERATOR" content="Quanta Plus" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link href="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/css/style.css" rel="stylesheet" type="text/css" />
-  <link href="<? echo "".ROUTE_BASE_ADMIN.""; ?>views/css/menu.css" rel="stylesheet" type="text/css" media="screen" />
+    <title><?php echo "".$this -> title.""; ?></title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="<?php echo "".$this -> description.""; ?>" />
+    <meta name="keywords" content="<?php echo "".$this -> keywords.""; ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta name="author" content=" devlog@devlog.cz" />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="<?php echo "".URL_BASE.""; ?>views/images/logo.ico" />     
+    <link href = "<?php echo "".URL_BASE.""; ?>public/css/main.css" rel = "stylesheet" />
+    
 </head>
-<body>
-<div class="body">
+<body >
+<div class="header">
+</div>
 
 

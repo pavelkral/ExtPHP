@@ -1,61 +1,50 @@
  <?php
 /**
  * ExtPHP framework
- * This source file is subject to the ExtPHP framework license
- * with this package in the file license.txt.
- * @copyright  Copyright (c) 2009-2011 Pavel Kral
- * @license   http://x-design.wz.cz/license ExtPHP framework license
- * @link       http://x-design.wz.cz/extphp/
- * @category    framework 
- * ExtRoute
- * @package  ExtPHP
- * @author Pavel Kral
- * @version 2011
- * @access public
  */
 
 
 class ExtRoute
 {
 
-      public $presentername = '';
+      public $controllername = '';
       public $functionname = '';
       public $parameters = array();
 
  
      /**
       * ExtRoute::__construct()
-      * @param string $presenterName
+      * @param string $controllername
       * @param string $functionName
       * @param string $parameters
       */
       
-     public function __construct($presenterName,$functionName,$parameters) {
+     public function __construct($controllername,$functionname,$parameters) {
 
 			$this->parameters = $parameters;
-			$this->presentername = $presenterName;
-			$this->functionname= $functionName;
+			$this->controllername = $controllername;
+			$this->functionname= $functionname;
       }
 
       /**
-       * ExtRoute::getPresenterName()
-       * @return string $presenterName
+       * ExtRoute::getcontrollername()
+       * @return string $controllername
        */
        
-      function getPresenterName(){
+      function getControllerName(){
 
-            return $this->presentername;
+            return $this->controllername;
       }
 
       /**
-       * ExtRoute::setPresenterName()
-       * @param string $presenterName
+       * ExtRoute::setcontrollername()
+       * @param string $controllername
  
        */
        
-      function setPresenterName($presenterName){
+      function setControllerName($controllername){
  
-            $this->presentername = $presenterName;
+            $this->controllername = $controllername;
       }
 
       /**
@@ -93,9 +82,9 @@ class ExtRoute
        * @param array $presenterParameters
        */
        
-      function setParameters($presenterParameters){
+      function setParameters($controllerParameters){
         
-            $this->parameters = $presenterParameters;
+            $this->parameters = $controllerParameters;
       }
 }
 ?>

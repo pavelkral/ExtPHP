@@ -1,40 +1,19 @@
 <?php
 /**
  * This is a part of the ExtPHP framework
- *
- * @copyright  Copyright (c) 2009-2011 Pavel Kral
- * @link       http://x-design.wz.cz/extphp/
- * @category    framework 
- * 
- * For the full copyright and license information, please view
- * the license.txt that was distributed with this source code.
- * 
- * ExtApplication
- * @package  ExtPHP
- * @author Pavel Kral
- * @version 2011
- * @access public
+
  */
-
-
- 
 class ExtApplication{
     
 
     private static $instance = false; 
-    public $presenter;
+    public $controller;
     public $router;
     public $appSecure = false;
     public $appSecureVar = '';
-    public $appSecurePresenter;
+    public $appSecureController;
     public $authentication = false;
-
-
-	/**
-	 * ExtApplication::__construct()
-
-	 */
-         
+  
     public function __construct(){
         	   
     }
@@ -73,9 +52,9 @@ class ExtApplication{
 	
 	 */
      
-	function isPresenter($presenterName){
+	function isController($controllerName){
 	  
-		if(file_exists('presenters/'.$presenterName.'Presenter.php')){
+		if(file_exists('controllers/'.$controllerName.'Controller.php')){
 			return true;
 		}
 		else{
@@ -95,7 +74,7 @@ class ExtApplication{
 
 		$this->appSecure = true;
 		$this->appSecureVar = $varname;
-		$this->appSecurePresenter = $presenter;
+		$this->appSecureController = $presenter;
 
 	}
 
@@ -137,25 +116,25 @@ class ExtApplication{
      
 	public function run(){
 
-		$presenterName = $this->router->route->getPresenterName();
+		$controllerName = $this->router->route->getControllerName();
 	
-        if($this->isPresenter($presenterName) == false){
-			$presenterName = 'Error';
+        if($this->isController($controllerName) == false){
+			$controllerName = 'Error';
 		}
 		else{
 		}
 			if($this->appSecure == true){
 				if(!$this->secureCheck() == true){
-					$presenterName = $this->appSecurePresenter;
+					$controllerName = $this->appSecureController;
 				}
 			}		
 			else{
 				
 			}
 
-		$presenterClass = $presenterName."Presenter";
-		$this->presenter= new $presenterClass($this->router->route);
-		$this->presenter ->run();
+		$controllerClass = $controllerName."Controller";
+		$this->controller= new $controllerClass($this->router->route);
+		$this->controller ->run();
 
 
 	}

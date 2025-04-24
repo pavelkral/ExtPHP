@@ -1,12 +1,6 @@
 <?php
 /**
  * ExtPHP framework
- * This source file is subject to the ExtPHP framework license
- * with this package in the file license.txt.
- * @copyright  Copyright (c) 2009-2011 Pavel Kral
- * @license   http://x-design.wz.cz/license ExtPHP framework license
- * @link       http://x-design.wz.cz
- * @category    framework
  */
 
 
@@ -39,9 +33,9 @@ class ExtAction{
      * @param mixed $parameters
      * @return void
      */
-    public static function connect ($presenter,$function,$parameters) {        
+    public static function connect ($controllerr,$function,$parameters) {        
  
-	   echo URL_BASE . $presenter . "/" . $function . "/" . $parameters . "/";
+	   echo URL_BASE . $controller . "/" . $function . "/" . $parameters . "/";
 
 	} 
 		

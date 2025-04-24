@@ -1,9 +1,6 @@
 <?php
 /**
  * ExtPHP framework
- * This source file is subject to the ExtPHP framework license
- * with this package in the file license.txt.
- * @copyright  Copyright (c) 2009 Pavel Kral
  */
   	function autoload_class_dirs($class_name) 
 	{
@@ -16,7 +13,7 @@
 			'lib/ExtPHP/',
 			'models/',
             'components/',
-			'presenters/'
+			'controllers/'
 		);
 
 		foreach($directorys as $directory)

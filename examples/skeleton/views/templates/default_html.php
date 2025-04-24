@@ -1,9 +1,7 @@
-<?
-include_once DIR_TEMPLATE . "header_html.php"; 
-?>
+<?php include_once DIR_TEMPLATE . "header_html.php"; ?>
+<!-- Centered.............................................................................................. Tabs -->
+<div class="page">
+    Api page
+</div>
 
-<h2>ExtPhp Example</h2>
-
-<?
-include_once DIR_TEMPLATE . "footer_html.php"; 
-?>
+<?php include_once DIR_TEMPLATE . "footer_html.php";  ?>

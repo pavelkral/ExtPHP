@@ -13,7 +13,7 @@ Minimalistic and fast Php and MySql MVC framework using mode rewrite.
 ## Route call
 
   ```shell
-  Object = ArticlesPresenter extend ExtPresenter //if not set call default
+  Object = ArticlesConntroller extend ExtConntroller  //if not set call default
   his function show(); //if not set call default
   with array of params[0-n]
   ```
