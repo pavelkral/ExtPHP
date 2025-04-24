@@ -1,15 +1,5 @@
 <?php
-/**
- * ExtPHP 
- * This source file is subject to the ExtPHP  license
- * @category  micro framework 
- * @package  ExtPHP
- * @author Pavel Kral
- * @version 2009
- * @access public
- */
- 
- 
+
 //...............................................................................................................................................................................................................
 	//error_reporting(0);
     define('LOADER_PREFIX', '');
